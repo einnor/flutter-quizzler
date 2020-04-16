@@ -3,6 +3,8 @@ import 'package:quizzler/Question.dart';
 class QuizBrain {
   int _questionNumber = 0;
 
+  bool _hasQuizEnded = false;
+
   List<Question> _questions = [
     Question(
       q: 'Some cats are actually allergic to humans',
@@ -61,7 +63,13 @@ class QuizBrain {
   void nextQuestion() {
     if (_questionNumber < _questions.length - 1) {
       _questionNumber++;
+    } else {
+      _hasQuizEnded = true;
     }
+  }
+
+  bool hasQuizEnded() {
+    return _hasQuizEnded;
   }
 
   String getQuestion() {
