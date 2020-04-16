@@ -32,13 +32,21 @@ class _QuizPageState extends State<QuizPage> {
 
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswer = brain.getAnswer();
+    Icon icon = Icon(
+      Icons.close,
+      color: Colors.red,
+    );
+
     if (userPickedAnswer == correctAnswer) {
-      print('User got it right');
-    } else {
-      print('User got it wrong');
+      icon = Icon(
+        Icons.check,
+        color: Colors.green,
+      );
     }
+
     setState(() {
       brain.nextQuestion();
+      scoreKeeper.add(icon);
     });
   }
 
