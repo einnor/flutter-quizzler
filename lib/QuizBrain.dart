@@ -59,4 +59,8 @@ class QuizBrain {
   String getQuestion(int questionNumber) {
     return _questions[questionNumber].question;
   }
+
+  bool getAnswer(int questionNumber) {
+    return _questions[questionNumber].answer;
+  }
 }
