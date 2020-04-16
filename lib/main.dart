@@ -31,6 +31,11 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
 
+  void resetQuiz() {
+    brain.reset();
+    scoreKeeper.clear();
+  }
+
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswer = brain.getAnswer();
 
@@ -50,10 +55,11 @@ class _QuizPageState extends State<QuizPage> {
       if (brain.hasQuizEnded() == true) {
         Alert(
           context: context,
-          title: "RFLUTTER ALERT",
-          desc: "Flutter is better with RFlutter Alert.",
-          image: Image.asset("assets/success.png"),
+          title: 'FINISHED',
+          desc: 'You\'ve reached the end of the quiz.',
         ).show();
+
+        resetQuiz();
       }
     });
   }
