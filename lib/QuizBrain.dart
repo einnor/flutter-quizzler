@@ -1,6 +1,8 @@
 import 'package:quizzler/Question.dart';
 
 class QuizBrain {
+  int _questionNumber = 0;
+
   List<Question> _questions = [
     Question(
       q: 'Some cats are actually allergic to humans',
@@ -56,11 +58,17 @@ class QuizBrain {
     ),
   ];
 
-  String getQuestion(int questionNumber) {
-    return _questions[questionNumber].question;
+  void nextQuestion() {
+    if (_questionNumber < _questions.length) {
+      _questionNumber++;
+    }
   }
 
-  bool getAnswer(int questionNumber) {
-    return _questions[questionNumber].answer;
+  String getQuestion() {
+    return _questions[_questionNumber].question;
+  }
+
+  bool getAnswer() {
+    return _questions[_questionNumber].answer;
   }
 }
