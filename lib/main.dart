@@ -47,6 +47,14 @@ class _QuizPageState extends State<QuizPage> {
         ));
       }
       brain.nextQuestion();
+      if (brain.hasQuizEnded() == true) {
+        Alert(
+          context: context,
+          title: "RFLUTTER ALERT",
+          desc: "Flutter is better with RFlutter Alert.",
+          image: Image.asset("assets/success.png"),
+        ).show();
+      }
     });
   }
 

@@ -3,7 +3,7 @@ import 'package:quizzler/Question.dart';
 class QuizBrain {
   int _questionNumber = 0;
 
-  bool _hasQuizEnded = false;
+  bool _isFinished = false;
 
   List<Question> _questions = [
     Question(
@@ -64,12 +64,12 @@ class QuizBrain {
     if (_questionNumber < _questions.length - 1) {
       _questionNumber++;
     } else {
-      _hasQuizEnded = true;
+      _isFinished = true;
     }
   }
 
   bool hasQuizEnded() {
-    return _hasQuizEnded;
+    return _isFinished;
   }
 
   String getQuestion() {
@@ -78,5 +78,10 @@ class QuizBrain {
 
   bool getAnswer() {
     return _questions[_questionNumber].answer;
+  }
+
+  void reset() {
+    _questionNumber = 0;
+    _isFinished = false;
   }
 }
