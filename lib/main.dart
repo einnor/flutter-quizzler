@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quizzler/QuizBrain.dart';
+
+QuizBrain brain = QuizBrain();
 
 void main() => runApp(Quizzler());
 
@@ -41,7 +44,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber].question,
+                brain.questions[questionNumber].question,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -66,7 +69,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
-                bool correctAnswer = questions[questionNumber].answer;
+                bool correctAnswer = brain.questions[questionNumber].answer;
                 if (correctAnswer == true) {
                   print('User got it right');
                 } else {
@@ -93,7 +96,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked false.
-                bool correctAnswer = questions[questionNumber].answer;
+                bool correctAnswer = brain.questions[questionNumber].answer;
                 if (correctAnswer == false) {
                   print('User got it right');
                 } else {
