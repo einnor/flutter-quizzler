@@ -72,6 +72,9 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
+                setState(() {
+                  questionNumber = questionNumber + 1;
+                });
               },
             ),
           ),
@@ -90,6 +93,9 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked false.
+                setState(() {
+                  questionNumber = questionNumber + 1;
+                });
               },
             ),
           ),
